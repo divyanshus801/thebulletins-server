@@ -157,14 +157,11 @@ exports.getNewsById = (req, res, next, id) => {
   
   //product listing
   exports.getAllNewses = (req, res) => {
-    let limit = req.query.limit ? parseInt(req.query.limit) : 8;
-    let sortBy = req.query.sortBy ? req.query.sortBy : "_id";
-  
+    
     News.find()
       .select("-photo")
       .populate("category author")
       .sort({"createdAt": -1})
-      .limit(limit)
       .exec((err, newses) => {
         if (err) {
           return res.status(400).json({
