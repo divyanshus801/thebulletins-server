@@ -42,7 +42,7 @@ exports.getNewsById = (req, res, next, id) => {
           error: "No news Found",
         });
       }
-      res.json(newses);
+      res.status(201).json(newses);
      })
   }
   
@@ -168,7 +168,7 @@ exports.getNewsById = (req, res, next, id) => {
             error: "No product Found",
           });
         }
-        res.json(newses);
+        res.status(201).json(newses);
       });
   };
   
