@@ -88,10 +88,11 @@ exports.getNewsById = (req, res, next, id) => {
     });
   };
   
-  exports.getProduct = (req, res) => {
+  exports.getNewsByNewsId = (req,res) => {
     req.news.photo = undefined;
-    return res.json(req.product);
-  };
+    let news = req.news;
+    res.status(201).json(news);   
+ }
   
   //middleware
   exports.photo = (req, res, next) => {
