@@ -16,7 +16,7 @@ router.param("categoryId",getCategoryById);
 router.post('/news/create/:userId',isSignedIn, isAuthenticated,  createNews);
 
 //read routes
-router.get('/news/:newsId',getNewsByNewsId);
+router.get('/newsContent/:newsId',getNewsByNewsId);
 router.get('/product/photo/:newsId',photo);
 router.get('/news/:categoryId',getNewsByCategoryId);
 
