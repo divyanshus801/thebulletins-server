@@ -6,7 +6,7 @@ const fs = require("fs");
 
 exports.getNewsById = (req, res, next, id) => {
     News.findById(id)
-      .populate("category")
+      .populate("category author")
       .exec((err, news) => {
         if (err) {
           return res.status(400).json({
