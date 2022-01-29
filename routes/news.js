@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const {getNewsById, getProduct, photo, updateProduct, getAllNewses, getAllUniqueCategories,
-     createNews, getNewsByCategoryId, deleteNews, getCategoryById} = require('../controller/news');
+     createNews, getNewsByCategoryId, deleteNews, getCategoryById, getNewsByNewsId} = require('../controller/news');
 const {getUserById, getUserForPhoto} = require('../controller/admin/user');
 const {isSignedIn, isAuthenticated, isAdmin} = require('../controller/admin/auth');
 
@@ -16,7 +16,7 @@ router.param("categoryId",getCategoryById);
 router.post('/news/create/:userId',isSignedIn, isAuthenticated,  createNews);
 
 //read routes
-router.get('/product/:productId',getProduct);
+router.get('/news/:newsId',getNewsByNewsId);
 router.get('/product/photo/:newsId',photo);
 router.get('/news/:categoryId',getNewsByCategoryId);
 
