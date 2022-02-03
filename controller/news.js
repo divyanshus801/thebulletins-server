@@ -34,7 +34,7 @@ exports.getNewsById = (req, res, next, id) => {
   exports.getNewsByCategoryId = (req,res) => {
      let category = req.category;
      News.find({category: category})
-     .populate("author")
+     .populate("category author")
      .sort({"createdAt": -1})
      .exec((err,newses) => {
       if (err) {
